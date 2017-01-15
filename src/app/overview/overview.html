@@ -2,6 +2,8 @@
 
 <div ng-if="$ctrl.loading">Loading</div>
 
+<a href="results">Results</a>
+
 <div ng-repeat="quiz in $ctrl.quizzes">
     <a ui-sref="quiz({id: quiz.id})" ng-if="$ctrl.availableQuizzes[quiz.id]">
         {{::quiz.title}}

@@ -13,5 +13,9 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('quiz', {
       url: '/quiz/:id',
       component: 'quiz'
+    })
+    .state('results', {
+      url: '/results',
+      component: 'results'
     });
 }

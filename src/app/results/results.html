@@ -1,0 +1,9 @@
+<h1>Results</h1>
+
+<div ng-if="$ctrl.loading">Loading</div>
+
+<a ui-sref="overview">Back to overview</a>
+
+<div ng-repeat="result in $ctrl.results">
+    {{::result.title}}: {{result.answers.correct}} / {{result.answers.all}}
+</div>
