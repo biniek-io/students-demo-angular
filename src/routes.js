@@ -9,5 +9,9 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('overview', {
       url: '/',
       component: 'overview'
+    })
+    .state('quiz', {
+      url: '/quiz/:id',
+      component: 'quiz'
     });
 }

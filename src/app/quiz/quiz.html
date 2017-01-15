@@ -1,0 +1,17 @@
+<h1>Quiz: {{$ctrl.quiz.name}}</h1>
+
+<div ng-if="$ctrl.loading">Loading</div>
+
+<form name="quizForm" ng-submit="quizForm.$valid && $ctrl.save()">
+    <fieldset ng-repeat="question in $ctrl.quiz.questions">
+        <div>{{::question.question}}</div>
+        <label ng-repeat="(id, answer) in question.answers">
+            <input type="radio" ng-model="$ctrl.answers[question.id]" ng-required value="{{id}}" />
+            {{answer}}
+        </label>
+    </fieldset>
+    <fieldset>
+        <input type="submit" ng-disabled="!$ctrl.allAnswered" />
+        <a ui-sref="overview">Back to overview</a>
+    </fieldset>
+</form>

@@ -1,3 +1,5 @@
+import angular from 'angular';
+
 /**
  * Provider of data service
  *
@@ -31,9 +33,36 @@ export function DataServiceProvider($resource, $q) {
      * @returns {Promise}
      * @todo add backend validation
      */
-    getQuestions(quizId) {
-      //$q.all()
-      //return this.questions.get().$promise.then(data => );
+    getQuizWithQuestions(quizId) {
+
+      if (typeof quizId !== 'number') {
+        quizId = parseInt(quizId);
+      }
+
+      const promise = $q.all({
+        quizzes: this.getQuizzes(),
+        questions: this.questions.get().$promise
+      }).then(result => {
+
+        const quizzes = result.quizzes.quizzes;
+        const questions = result.questions.questions;
+        const quiz = angular.copy(quizzes.find((quiz) => quiz.id === quizId));
+
+        if (!quiz) {
+          let deferred = $q.defer();
+          deferred.reject();
+          return deferred.promise;
+        }
+
+        quiz.questions = quiz.question_ids.map(id => {
+          let value = questions.find(question => question.id === id);
+          return value;
+        });
+
+        return quiz;
+      });
+
+      return promise;
     }
   }
 

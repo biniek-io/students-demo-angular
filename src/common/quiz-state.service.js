@@ -36,11 +36,15 @@ export function QuizStateProvider($q) {
 
     /**
      * Saves result of the quiz
-     * @param quizId
-     * @param result
+     * @param {number} quizId
+     * @param {Object} result
      * @returns {Promise}
      */
     saveQuizResult(quizId, result) {
+      if (typeof quizId !== 'number') {
+        quizId = parseInt(quizId);
+      }
+
       const quiz = this.quizzesResult.find(existing => existing.id === quizId);
       if (!quiz) {
         this.quizzesResult.push({
@@ -48,9 +52,7 @@ export function QuizStateProvider($q) {
           result
         });
       } else {
-        if (quiz.result < result) {
           quiz.result = result;
-        }
       }
 
       //@todo fake promise - connect to backend

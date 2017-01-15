@@ -32,11 +32,11 @@ class overviewCtrl {
 
     // assumption that quiz is always available
     if (mostDifficultQuiz !== 0) {
-      let i = 0;
+      let i = -1;
       do {
         i++;
         this.availableQuizzes[this.quizzes[i].id] = true;
-      } while (this.quizzes[i] !== mostDifficultQuiz);
+      } while (this.quizzes[i].id !== mostDifficultQuiz);
 
       if (i < this.quizzes.length - 1) {
         // add next after saved one
