@@ -2,7 +2,12 @@
 
 <div ng-if="$ctrl.loading">Loading</div>
 
-<a ui-sref="quiz({id: quiz.id})" ng-repeat="quiz in $ctrl.quizzes">
-    {{quiz.title}}
-</a>
+<div ng-repeat="quiz in $ctrl.quizzes">
+    <a ui-sref="quiz({id: quiz.id})" ng-if="$ctrl.availableQuizzes[quiz.id]">
+        {{::quiz.title}}
+    </a>
 
+    <div ng-if="!$ctrl.availableQuizzes[quiz.id]">
+        {{::quiz.title}}
+    </div>
+</div>
