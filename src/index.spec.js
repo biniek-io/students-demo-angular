@@ -1,2 +1,2 @@
-const context = require.context('./app', true, /\.(js|ts|tsx)$/);
+const context = require.context('.', true, /\.spec.(js|ts|tsx)$/);
 context.keys().forEach(context);

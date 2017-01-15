@@ -5,6 +5,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FailPlugin = require('webpack-fail-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const pkg = require('../package.json');
 const autoprefixer = require('autoprefixer');
 
@@ -62,7 +63,10 @@ module.exports = {
       options: {
         postcss: () => [autoprefixer]
       }
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: 'data/*', to: 'data/*' }
+    ])
   ],
   output: {
     path: path.join(process.cwd(), conf.paths.dist),
