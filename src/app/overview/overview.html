@@ -1,1 +1,8 @@
-<h1>{{ $ctrl.hello }}</h1>
+<h1>List of quizzes</h1>
+
+<div ng-if="$ctrl.loading">Loading</div>
+
+<a ui-sref="quiz({id: quiz.id})" ng-repeat="quiz in $ctrl.quizzes">
+    {{quiz.title}}
+</a>
+
