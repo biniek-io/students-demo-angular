@@ -1,9 +1,30 @@
-<h1>Results</h1>
+<div layout="column">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button aria-label="Go to overview" ui-sref="overview">
+                Go to overview
+            </md-button>
+            <h1>
+                <span>Results</span>
+            </h1>
+        </div>
+    </md-toolbar>
+    <md-content flex layout-padding>
+        <div ng-if="$ctrl.loading">Loading</div>
 
-<div ng-if="$ctrl.loading">Loading</div>
+        <md-list flex ng-if="$ctrl.results.length !== 0">
+            <md-list-item
+                    ng-repeat="result in $ctrl.results"
+                    class="md-2-line">
 
-<a ui-sref="overview">Back to overview</a>
+                <div class="md-list-item-text" layout="column">
+                    <h3>{{::result.title}}</h3>
+                    <h4>Correct answers: {{result.answers.correct}} / {{result.answers.all}}</h4>
+                </div>
 
-<div ng-repeat="result in $ctrl.results" class="row-results">
-    {{::result.title}}: {{result.answers.correct}} / {{result.answers.all}}
+            </md-list-item>
+        </md-list>
+
+        <h3 class="no-items" ng-if="$ctrl.results.length === 0">Resolve quiz to review your scores</h3>
+    </md-content>
 </div>

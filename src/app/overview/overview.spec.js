@@ -32,15 +32,15 @@ describe('overview component', () => {
 
   it('should render title and list of quizzes', () => {
     const h1 = element.find('h1');
-    expect(h1.html()).toEqual('List of quizzes');
+    expect(h1.text().trim()).toEqual('List of quizzes');
 
-    const quizzes = element[0].querySelectorAll('.list-quizzes *');
+    const quizzes = element[0].querySelectorAll('md-list-item');
     expect(quizzes.length).toEqual(5);
   });
 
   it('should initally allow to go to only to first quiz', () => {
 
-    const quizzes = element[0].querySelectorAll('.list-quizzes a');
+    const quizzes = element[0].querySelectorAll('md-list-item:not([disabled])');
     expect(quizzes.length).toEqual(1);
   });
 
@@ -52,7 +52,7 @@ describe('overview component', () => {
 
     $rootScope.$digest();
 
-    const quizzes = element[0].querySelectorAll('.list-quizzes a');
+    const quizzes = element[0].querySelectorAll('md-list-item:not([disabled])');
     expect(quizzes.length).toEqual(2);
   });
 });

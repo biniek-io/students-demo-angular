@@ -43,12 +43,16 @@ describe('results component', () => {
     QuizStateMock._setMostDifficultResolvedQuiz(4);
     compile();
 
-    const rowResults = element[0].querySelectorAll('.row-results');
+    const rowResults = element[0].querySelectorAll('.md-list-item-text');
     expect(rowResults.length).toEqual(4);
-    expect(rowResults[0].innerHTML.trim()).toEqual('Quiz 1: 1 / 3');
-    expect(rowResults[1].innerHTML.trim()).toEqual('Quiz 2: 0 / 3');
-    expect(rowResults[2].innerHTML.trim()).toEqual('Quiz 3: 2 / 3');
-    expect(rowResults[3].innerHTML.trim()).toEqual('Quiz 4: 3 / 3');
+    expect(rowResults[0].querySelector('h3').innerHTML.trim()).toEqual('Quiz 1');
+    expect(rowResults[0].querySelector('h4').innerHTML.trim()).toEqual('Correct answers: 1 / 3');
+    expect(rowResults[1].querySelector('h3').innerHTML.trim()).toEqual('Quiz 2');
+    expect(rowResults[1].querySelector('h4').innerHTML.trim()).toEqual('Correct answers: 0 / 3');
+    expect(rowResults[2].querySelector('h3').innerHTML.trim()).toEqual('Quiz 3');
+    expect(rowResults[2].querySelector('h4').innerHTML.trim()).toEqual('Correct answers: 2 / 3');
+    expect(rowResults[3].querySelector('h3').innerHTML.trim()).toEqual('Quiz 4');
+    expect(rowResults[3].querySelector('h4').innerHTML.trim()).toEqual('Correct answers: 3 / 3');
   });
 
   function compile() {

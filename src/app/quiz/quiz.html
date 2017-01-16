@@ -1,17 +1,35 @@
-<h1>Quiz: {{$ctrl.quiz.title}}</h1>
+<div layout="column">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button aria-label="Go to overview" ui-sref="overview">
+                Go to overview
+            </md-button>
+            <h1>
+                <span>Quiz: {{$ctrl.quiz.title}}</span>
+            </h1>
+            <span flex></span>
+            <md-button class="md-raised" aria-label="Results" ui-sref="results">
+                Results
+            </md-button>
+        </div>
+    </md-toolbar>
 
-<div ng-if="$ctrl.loading">Loading</div>
+    <md-content flex layout-padding>
+        <div ng-if="$ctrl.loading">Loading</div>
 
-<form name="quizForm" ng-submit="quizForm.$valid && $ctrl.save()">
-    <fieldset ng-repeat="question in $ctrl.quiz.questions" class="row-answers">
-        <div>{{::question.question}}</div>
-        <label ng-repeat="(id, answer) in question.answers">
-            <input type="radio" ng-model="$ctrl.answers[question.id]" ng-required value="{{id}}" />
-            {{answer}}
-        </label>
-    </fieldset>
-    <fieldset>
-        <input type="submit" ng-disabled="!$ctrl.allAnswered" />
-        <a ui-sref="overview">Back to overview</a>
-    </fieldset>
-</form>
+        <form name="quizForm">
+            <fieldset ng-repeat="question in $ctrl.quiz.questions" class="row-answers">
+                <h2>{{::question.question}}</h2>
+                <md-divider></md-divider>
+                <md-radio-group ng-model="$ctrl.answers[question.id]">
+                    <md-radio-button ng-repeat="(id, answer) in question.answers"
+                                     value="{{id}}">{{answer}}</md-radio-button>
+                </md-radio-group>
+            </fieldset>
+            <fieldset>
+                <md-button class="md-raised md-primary" ng-click="quizForm.$valid && $ctrl.save()" ng-disabled="!$ctrl.allAnswered">Submit</md-button>
+                <md-button ui-sref="overview">Back to overview</md-button>
+            </fieldset>
+        </form>
+    </md-content>
+</div>

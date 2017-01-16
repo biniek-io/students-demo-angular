@@ -1,3 +1,17 @@
 body {
-  background-color: lightgrey;
+  background-color: white;
+}
+
+fieldset {
+  border: none;
+}
+
+md-list-item[disabled] {
+  opacity: 0.7;
+  background: #eeeeee;
+  pointer-events: none;
+}
+
+md-radio-group md-radio-button:first-child {
+  margin-top: 15px;
 }
