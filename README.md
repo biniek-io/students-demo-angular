@@ -30,3 +30,12 @@ How to run tests
 ```bash
 npm run test
 ```
+
+Demo
+====
+
+https://biniek-io.github.io/students-demo-angular/
+
+License
+=======
+NLPL (Public License)
