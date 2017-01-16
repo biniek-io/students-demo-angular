@@ -4,7 +4,7 @@
 
 <a href="results">Results</a>
 
-<div ng-repeat="quiz in $ctrl.quizzes">
+<div ng-repeat="quiz in $ctrl.quizzes" class="list-quizzes">
     <a ui-sref="quiz({id: quiz.id})" ng-if="$ctrl.availableQuizzes[quiz.id]">
         {{::quiz.title}}
     </a>
