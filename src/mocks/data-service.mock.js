@@ -13,5 +13,47 @@ export const DataServiceMock = {
         }));
       }
     }
+  },
+  getQuizWithQuestions(id) {
+    return {
+      then(fn) {
+        setTimeout(fn({
+          id,
+          title: 'Quiz ' + id,
+          question_ids: [1, 2, 3],
+          questions: [{
+            'id': 1,
+            'question': 'What is the second largest country (total area)?',
+            'answers': [
+              'United States',
+              'Russia',
+              'Canada',
+              'China'
+            ],
+            'correct_answer': 2
+          }, {
+            'id': 2,
+            'question': 'What is the second largest country (total area)?',
+            'answers': [
+              'United States',
+              'Russia',
+              'Canada',
+              'China'
+            ],
+            'correct_answer': 2
+          }, {
+            'id': 3,
+            'question': 'What is the second largest country (total area)?',
+            'answers': [
+              'United States',
+              'Russia',
+              'Canada',
+              'China'
+            ],
+            'correct_answer': 2
+          }]
+        }));
+      }
+    }
   }
 };

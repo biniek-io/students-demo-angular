@@ -26,16 +26,6 @@ describe('overview component', () => {
 
     element = $compile('<overview></overview>')($rootScope);
     $rootScope.$digest();
-
-    // to handle promises
-    /*jasmine.clock().install();
-    jasmine.clock().tick(10);
-    jasmine.clock().uninstall();*/
-    $rootScope.$digest();
-    $rootScope.$digest();
-
-    //console.log('.isolateScope();', element.html())
-
   }));
 
   it('should render title and list of quizzes', () => {

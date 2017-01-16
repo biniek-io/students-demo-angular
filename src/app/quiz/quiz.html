@@ -3,7 +3,7 @@
 <div ng-if="$ctrl.loading">Loading</div>
 
 <form name="quizForm" ng-submit="quizForm.$valid && $ctrl.save()">
-    <fieldset ng-repeat="question in $ctrl.quiz.questions">
+    <fieldset ng-repeat="question in $ctrl.quiz.questions" class="row-answers">
         <div>{{::question.question}}</div>
         <label ng-repeat="(id, answer) in question.answers">
             <input type="radio" ng-model="$ctrl.answers[question.id]" ng-required value="{{id}}" />
