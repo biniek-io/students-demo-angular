@@ -21,14 +21,14 @@ describe('QuizState', () => {
   }));
 
   it('should return promise after saving quiz result', angular.mock.inject((QuizState) => {
-    const result = QuizState.saveQuizResult(1, {1: true, 2: false, 3: false});
+    const result = QuizState.saveQuizResult(1, {1: '1', 2: '1', 3: '1'});
     // @todo make test better when known backend response
     expect(result.then).toBeDefined();
   }));
 
   describe('after save', () => {
     beforeEach(angular.mock.inject(($rootScope, QuizState) => {
-      QuizState.saveQuizResult(1, {1: true, 2: false, 3: false});
+      QuizState.saveQuizResult(1, {1: '1', 2: '1', 3: '1'});
       $rootScope.$digest();
     }));
 

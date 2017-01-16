@@ -15,6 +15,8 @@ describe('overview component', () => {
       .component('overview', overview);
     angular.mock.module('students');
 
+    QuizStateMock._reset();
+
     angular.mock.module(($provide) => {
       $provide.value('DataService', DataServiceMock);
       $provide.value('QuizState', QuizStateMock);

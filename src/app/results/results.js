@@ -15,7 +15,6 @@ class resultsCtrl {
   $onInit() {
     this.results = [];
     this.QuizState.getQuizzesResults().forEach(results => {
-      console.log('results', results);
 
       const quiz = {loading: true};
       this.results.push(quiz);

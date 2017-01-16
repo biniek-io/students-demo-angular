@@ -13,6 +13,10 @@ export const QuizStateMock = {
   _setMostDifficultResolvedQuiz(value) {
     QuizStateMock.mostDifficultResolvedQuiz = value;
   },
+  _reset() {
+    QuizStateMock.mostDifficultResolvedQuiz = 0;
+    QuizStateMock.results = [];
+  },
   saveQuizResult() {
     return {
       then(fn) {
