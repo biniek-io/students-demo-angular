@@ -1,4 +1,4 @@
-About
+About [![Build Status](https://travis-ci.org/biniek-io/students-demo-angular.svg?branch=master)](https://travis-ci.org/biniek-io/students-demo-angular)
 =====
 
 The project is about simple application where user can get access to multiple quizzes.
